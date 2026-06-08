@@ -1,0 +1,174 @@
+-- HR SQL Developer Queries
+-- Employee, Department, and Organizational Management Queries
+
+-- Query 1: Table Count Summary
+SELECT 'EMPLOYEES'   AS tbl, COUNT(*) AS total FROM EMPLOYEES   UNION ALL
+SELECT 'DEPARTMENTS' AS tbl, COUNT(*) AS total FROM DEPARTMENTS  UNION ALL
+SELECT 'JOBS'        AS tbl, COUNT(*) AS total FROM JOBS         UNION ALL
+SELECT 'LOCATIONS'   AS tbl, COUNT(*) AS total FROM LOCATIONS    UNION ALL
+SELECT 'COUNTRIES'   AS tbl, COUNT(*) AS total FROM COUNTRIES    UNION ALL
+SELECT 'REGIONS'     AS tbl, COUNT(*) AS total FROM REGIONS;
+
+-- Query 2: Employee and Department Assignment
+SELECT e.employee_id                       AS "Employee ID",
+       e.first_name || ' ' || e.last_name  AS "Full Name",
+       d.department_name                   AS "Department"
+FROM   employees   e
+JOIN   departments d ON e.department_id = d.department_id
+ORDER BY e.employee_id;
+
+-- Query 3: Employee Salary Report
+SELECT e.first_name || ' ' || e.last_name  AS "Full Name",
+       j.job_title                         AS "Job Title",
+       TO_CHAR(e.salary, '$999,999.00')    AS "Salary"
+FROM   employees e
+JOIN   jobs      j ON e.job_id = j.job_id
+ORDER BY e.salary DESC;
+
+-- Query 4: Employee Location Report
+SELECT e.first_name || ' ' || e.last_name  AS "Employee",
+       d.department_name                   AS "Department",
+       l.city                              AS "City"
+FROM   employees   e
+JOIN   departments d ON e.department_id = d.department_id
+JOIN   locations   l ON d.location_id   = l.location_id
+ORDER BY l.city, d.department_name;
+
+-- Query 5: Employee Region and Country Analysis
+SELECT e.first_name || ' ' || e.last_name  AS "Employee",
+       d.department_name                   AS "Department",
+       c.country_name                      AS "Country",
+       r.region_name                       AS "Region"
+FROM   employees e
+JOIN   departments d ON e.department_id = d.department_id
+JOIN   locations   l ON d.location_id   = l.location_id
+JOIN   countries   c ON l.country_id    = c.country_id
+JOIN   regions     r ON c.region_id     = r.region_id
+ORDER BY r.region_name, c.country_name;
+
+-- Query 6: All Employees with Optional Department
+SELECT e.employee_id                        AS "Employee ID",
+       e.first_name || ' ' || e.last_name   AS "Full Name",
+       NVL(d.department_name, 'No Department Assigned') AS "Department"
+FROM   employees   e
+LEFT JOIN departments d ON e.department_id = d.department_id
+ORDER BY d.department_name NULLS LAST, e.last_name;
+
+-- Query 7: Department Employee Count
+SELECT d.department_id                AS "Dept ID",
+       d.department_name              AS "Department",
+       COUNT(e.employee_id)           AS "Employee Count"
+FROM   departments d
+LEFT JOIN employees e ON d.department_id = e.department_id
+GROUP BY d.department_id, d.department_name
+ORDER BY COUNT(e.employee_id) DESC;
+
+-- Query 8: Empty Departments
+SELECT d.department_id   AS "Dept ID",
+       d.department_name AS "Department",
+       l.city            AS "Location"
+FROM   departments d
+LEFT JOIN employees e ON d.department_id = e.department_id
+LEFT JOIN locations l ON d.location_id   = l.location_id
+WHERE  e.employee_id IS NULL
+ORDER BY d.department_name;
+
+-- Query 9: Employee-Manager Relationship
+SELECT emp.first_name || ' ' || emp.last_name  AS "Employee",
+       mgr.first_name || ' ' || mgr.last_name  AS "Manager"
+FROM   employees emp
+JOIN   employees mgr ON emp.manager_id = mgr.employee_id
+ORDER BY mgr.last_name, emp.last_name;
+
+-- Query 10: Top of Organizational Hierarchy
+SELECT e.employee_id                        AS "Employee ID",
+       e.first_name || ' ' || e.last_name   AS "Full Name",
+       e.job_id                             AS "Job",
+       'Top of organizational hierarchy'    AS "Reason"
+FROM   employees e
+WHERE  e.manager_id IS NULL;
+
+-- Query 11: Employees Earning More than Their Manager
+SELECT emp.first_name || ' ' || emp.last_name  AS "Employee",
+       emp.salary                              AS "Employee Salary",
+       mgr.first_name || ' ' || mgr.last_name  AS "Manager",
+       mgr.salary                              AS "Manager Salary",
+       emp.salary - mgr.salary                 AS "Difference"
+FROM   employees emp
+JOIN   employees mgr ON emp.manager_id = mgr.employee_id
+WHERE  emp.salary > mgr.salary
+ORDER BY (emp.salary - mgr.salary) DESC;
+
+-- Query 12: Department Manager Information
+SELECT d.department_id                             AS "Dept ID",
+       d.department_name                           AS "Department",
+       e.first_name || ' ' || e.last_name         AS "Manager Name",
+       l.city                                      AS "City"
+FROM   departments d
+JOIN   employees   e ON d.manager_id    = e.employee_id
+JOIN   locations   l ON d.location_id   = l.location_id
+WHERE  e.department_id = d.department_id
+ORDER BY d.department_name;
+
+-- Query 13: Complete Employee Profile
+SELECT e.employee_id                          AS "ID",
+       e.first_name || ' ' || e.last_name    AS "Employee",
+       j.job_title                           AS "Job Title",
+       d.department_name                     AS "Department",
+       l.city                                AS "City",
+       c.country_name                        AS "Country"
+FROM   employees  e
+JOIN   jobs        j ON e.job_id        = j.job_id
+JOIN   departments d ON e.department_id = d.department_id
+JOIN   locations   l ON d.location_id   = l.location_id
+JOIN   countries   c ON l.country_id    = c.country_id
+ORDER BY c.country_name, d.department_name, e.last_name;
+
+-- Query 14: Department Manager with Country Information
+SELECT d.department_name                                       AS "Department",
+       NVL(e.first_name || ' ' || e.last_name, 'No Manager') AS "Manager",
+       l.city                                                  AS "City",
+       c.country_name                                          AS "Country"
+FROM   departments d
+LEFT JOIN employees e ON d.manager_id   = e.employee_id
+JOIN      locations l ON d.location_id  = l.location_id
+JOIN      countries c ON l.country_id   = c.country_id
+ORDER BY d.department_name;
+
+-- Query 15: Employees and Managers in Same Department
+SELECT emp.first_name || ' ' || emp.last_name  AS "Employee",
+       d.department_name                       AS "Department",
+       mgr.first_name || ' ' || mgr.last_name  AS "Manager",
+       l.city                                  AS "City"
+FROM   employees   emp
+JOIN   employees   mgr ON emp.manager_id    = mgr.employee_id
+JOIN   departments d   ON emp.department_id = d.department_id
+JOIN   locations   l   ON d.location_id     = l.location_id
+WHERE  emp.department_id = mgr.department_id
+ORDER BY d.department_name, emp.last_name;
+
+-- Query 16: Employees and Managers in Different Departments
+SELECT emp.first_name || ' ' || emp.last_name  AS "Employee",
+       ed.department_name                      AS "Employee Dept",
+       mgr.first_name || ' ' || mgr.last_name  AS "Manager",
+       md.department_name                      AS "Manager Dept"
+FROM   employees   emp
+JOIN   employees   mgr ON emp.manager_id     = mgr.employee_id
+JOIN   departments ed  ON emp.department_id  = ed.department_id
+JOIN   departments md  ON mgr.department_id  = md.department_id
+WHERE  emp.department_id != mgr.department_id
+ORDER BY ed.department_name, emp.last_name;
+
+-- Query 17: Region Summary
+SELECT r.region_name                            AS "Region",
+       c.country_name                           AS "Country",
+       COUNT(DISTINCT d.department_id)          AS "Departments",
+       COUNT(DISTINCT e.employee_id)            AS "Employees"
+FROM   regions    r
+JOIN   countries  c ON r.region_id    = c.region_id
+JOIN   locations  l ON c.country_id   = l.country_id
+JOIN   departments d ON l.location_id = d.location_id
+LEFT JOIN employees e ON d.department_id = e.department_id
+GROUP BY r.region_name, c.country_name
+ORDER BY r.region_name, c.country_name;
+
