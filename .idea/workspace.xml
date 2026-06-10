@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0dae6199-657e-4ace-834c-294f645841eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AbdullahDB.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aggregation/FunctionsinOracleSQL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DQL/DQLImplementation" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/OMEN/OneDrive/Desktop/AbdullahDB" value="3EfdJMYZCDqj4MF17vmzki3o3zI" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000199236447" />
+      <entry key="MS500" value="1.067982567484494" />
+      <entry key="S2" value="2.496968676219798" />
+      <entry key="S5" value="6.483040807124719" />
+      <entry key="S10" value="13.012986444148769" />
+      <entry key="S30" value="35.45469453800261" />
+      <entry key="S60" value="59.38802355907103" />
+      <entry key="M2" value="85.7322134620768" />
+      <entry key="M5" value="119.68195060926972" />
+      <entry key="M10" value="151.84569137695357" />
+      <entry key="M15" value="173.8616348063448" />
+      <entry key="M30" value="209.75343883081342" />
+      <entry key="H1" value="236.41410532028846" />
+      <entry key="H2" value="252.89557839650953" />
+      <entry key="H4" value="262.0913761577245" />
+      <entry key="D1" value="270.2964194217997" />
+      <entry key="W1" value="271.75531833781156" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.07179366663994473" />
+      <entry key="MS500" value="0.6581382130946802" />
+      <entry key="S2" value="2.37127219163024" />
+      <entry key="S5" value="6.4267762885654856" />
+      <entry key="S10" value="12.979474832316832" />
+      <entry key="S30" value="35.43232932393496" />
+      <entry key="S60" value="59.36972409276121" />
+      <entry key="M2" value="85.71941905104465" />
+      <entry key="M5" value="119.67532834233921" />
+      <entry key="M10" value="151.84186254389587" />
+      <entry key="M15" value="173.85886826619227" />
+      <entry key="M30" value="209.75188338367394" />
+      <entry key="H1" value="236.4132630931882" />
+      <entry key="H2" value="252.89513714622385" />
+      <entry key="H4" value="262.09114987990836" />
+      <entry key="D1" value="270.2963808646771" />
+      <entry key="W1" value="271.7553128081593" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3EfdJMYZCDqj4MF17vmzki3o3zI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "SQL",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/OMEN/OneDrive/Desktop/AbdullahDB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.kkt.code.assis.settings.CodeAssistSettingsConfigurable"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0dae6199-657e-4ace-834c-294f645841eb" name="Changes" comment="" />
+      <created>1780573484983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1780573484983</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
